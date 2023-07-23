@@ -26,6 +26,6 @@
 ##### 自动构图
 
 ### 2.GAN
-PGGAN -> StyleGAN -> StyleGAN2-> CLIP-> StyleCLIP
-!(https://www.bilibili.com/video/BV13Y4y1i7df/?spm_id_from=333.788&vd_source=8d15835c175037a4297a46dc4a23d4f9)
+PGGAN -> StyleGAN -> StyleGAN2-> CLIP-> StyleCLIP\
+[速度了解StyleCLIP](https://www.bilibili.com/video/BV13Y4y1i7df/?spm_id_from=333.788&vd_source=8d15835c175037a4297a46dc4a23d4f9)
 ## 3⃣️比赛
