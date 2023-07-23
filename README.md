@@ -27,9 +27,9 @@
 
 ### 2.GAN
 PGGAN -> StyleGAN -> StyleGAN2-> CLIP-> StyleCLIP\
-[速度了解PGGAN](https://www.bilibili.com/video/BV1FZ4y1C7Vo)
-[速度了解StyleGAN](https://www.bilibili.com/video/BV1w44y1K775)
-[速度了解StyleGAN2](https://www.bilibili.com/video/BV1zS4y1N7CD)
-[速度了解CLIP](https://www.bilibili.com/video/BV1ZY4y1q7zF)
+[速度了解PGGAN](https://www.bilibili.com/video/BV1FZ4y1C7Vo)\
+[速度了解StyleGAN](https://www.bilibili.com/video/BV1w44y1K775)\
+[速度了解StyleGAN2](https://www.bilibili.com/video/BV1zS4y1N7CD)\
+[速度了解CLIP](https://www.bilibili.com/video/BV1ZY4y1q7zF)\
 [速度了解StyleCLIP](https://www.bilibili.com/video/BV13Y4y1i7df)
 ## 3⃣️比赛
