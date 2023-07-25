@@ -36,7 +36,6 @@
 图像融合、纹理编辑、图像编辑
 ##### 自动构图
 
-
 ### 2.GAN
       PGGAN -> StyleGAN -> StyleGAN2-> CLIP-> StyleCLIP
       LatendCode:(Z)->(W)
@@ -45,5 +44,7 @@
 [速度了解StyleGAN2](https://www.bilibili.com/video/BV1zS4y1N7CD)\
 [速度了解CLIP](https://www.bilibili.com/video/BV1ZY4y1q7zF)\
 [速度了解StyleCLIP](https:www.bilibili.com/video/BV13Y4y1i7df)
+
+### 3.super resolution高分辨率
 
 ## 3⃣️比赛
