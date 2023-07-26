@@ -13,24 +13,24 @@
 
 #### 基于深度学习的方法
 基于卷积神经网络的方法\
-1.SRCNN：第一个SR深度学习网络，Image Super-Resolution Using Deep Convolutional Networks\
-2.ESPCN：基于像素重排列，不需要对LR进行上采样，使用卷积的方式逐步恢复至目标分辨率大小\
-3.RCAN：首个将注意力机制应用于SR问题的网络\
-4.HAN：整体注意力网络(holistic attention network) ，考虑到了多尺度层之间的相互依赖关系，以及各层特征的通道和空间相关性，帮助网络捕获更多的信息特征\
-5.MSFIN：轻量级的方法，就如何让复杂的SR算法迁移至移动设备进行了研究。
+1.SRCNN(2016)：第一个SR深度学习网络，Image Super-Resolution Using Deep Convolutional Networks\
+2.ESPCN(2016)：基于像素重排列，不需要对LR进行上采样，使用卷积的方式逐步恢复至目标分辨率大小\
+3.RCAN(2018)：首个将注意力机制应用于SR问题的网络\
+4.HAN(2016)：整体注意力网络(holistic attention network) ，考虑到了多尺度层之间的相互依赖关系，以及各层特征的通道和空间相关性，帮助网络捕获更多的信息特征\
+5.MSFIN(2021)：轻量级的方法，就如何让复杂的SR算法迁移至移动设备进行了研究。
 
 基于残差网络的方法\
 ResNet 使用短路连接将低级特征信息深层特征信息结合，这使得叠加的网络层在输入特征的基础上学习到新的特征，从而提高整体网络的学习能力\
-1.VDSR：首次提出利用残差深度网络解决SR问题\
-2.EDSR/MDSR：增强的深度超分辨率(enhanced deep super-resolution，EDSR)网络\
-3.MSRN：多尺度残差网络 (multi-scaleresidualnetwork，MSRN)，该方法在残差块上进行改进，并加入了多尺度大小的卷积核， 实现了不同尺度图像特征的自适应地检测\
-4.MSFFRN：多尺度特征融合残差模块(multi-scale feature fusion residual block，MSFFRB)，通过多个交织路 径充分利用不同尺度下的浅层和深层局部图像特征信息。
+1.VDSR(2016)：首次提出利用残差深度网络解决SR问题\
+2.EDSR/MDSR(2017)：增强的深度超分辨率(enhanced deep super-resolution，EDSR)网络\
+3.MSRN(2018)：多尺度残差网络 (multi-scaleresidualnetwork，MSRN)，该方法在残差块上进行改进，并加入了多尺度大小的卷积核， 实现了不同尺度图像特征的自适应地检测\
+4.MSFFRN(2020)：多尺度特征融合残差模块(multi-scale feature fusion residual block，MSFFRB)，通过多个交织路 径充分利用不同尺度下的浅层和深层局部图像特征信息。
 
 基于GAN的方法\
 当缩放因子较大时，重建的SR图像由于缩放因子较大而缺乏纹理细节，重建效果并不理想。而 GAN 具有强大的生成力，可以很好地解决该问题。\
-1.SRGAN\
-2.USISResNet：一种无监督的超分算法\
-3.BSRGAN
+1.SRGAN(2016)\
+2.USISResNet(2020)：一种无监督的超分算法\
+3.BSRGAN(2021)
 
 ### 二.几类损失函数
 1.像素损失函数 2.内容损失函数：为了提升感知质量，利用神经网络中的生成的图像特征与真实图像特征之间的距离来进行计算。 3.对抗损失函数 4.感知损失函数：在 SRGAN 中将感知函数定义成内容损失和对抗损失的加权和
