@@ -11,7 +11,9 @@
 基于浅层学习的方法主要包括机器学习、流形 学习、样本学习和稀疏编码等，用于数据量较小的情况，人为设计特征过程较复杂。
 基于深度学习的方法可以分为为基于卷积神经网络的SR方法、基于残差网络(residual network, ResNet)的SR方法和基于生成对抗网络(generative adversarial networks, GAN)的SR方法等
 
-下面重点介绍基于深度学习的方法： 基于卷积神经网络的方法 1.SRCNN：第一个SR深度学习网络，Image Super-Resolution Using Deep Convolutional Networks
+#### 基于深度学习的方法
+基于卷积神经网络的方法 
+1.SRCNN：第一个SR深度学习网络，Image Super-Resolution Using Deep Convolutional Networks
 2.ESPCN：基于像素重排列，不需要对LR进行上采样，使用卷积的方式逐步恢复至目标分辨率大小
 3.RCAN：首个将注意力机制应用于SR问题的网络
 4.HAN：整体注意力网络(holistic attention network) ，考虑到了多尺度层之间的相互依赖关系，以及各层特征的通道和空间相关性，帮助网络捕获更多的信息特征。
