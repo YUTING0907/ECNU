@@ -41,7 +41,7 @@ SRCNN利用深度学习解决SISR的开山之作起到了开创性的作用，�
 
 SRCNN用方法1导致SR缩小，VDSR采用方法2避免了此问题
 
-### 三、Understanding Properties
+### Note:
 本论文给我带来的三点启发性思考，本部分继续探索一下三个问题：
 
 1. deeper networks give better performances；
