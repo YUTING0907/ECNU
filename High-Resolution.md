@@ -79,7 +79,15 @@ SRCNN文章于2014年提出，是第一篇将深度卷积神经网络（CNN）�
 )来讲解。
 
 #### 3.3 HR重建
-既2016年的VDSR后，超分辨率SR的重建大部分使用ESPCN论文中提出的pixel-shuffle
+既2016年的VDSR后，超分辨率SR的重建大部分使用ESPCN论文中提出的pixel-shuffle\
+pixel-shuffle操作其实就是将H * W * C * r * r  ==>  rH * rW * C 
+分辨遍历每一个通道将r与H、W混合（shuffle），即H * W 放大为 rH * rW，将照片从原来的大小放大为r倍。
+
+```
+在pytorch中：官方提供了pixel shuffle方法：
+CLASS torch.nn.PixelShuffle(upscale_factor)
+```
+
 
 ### 四、几类损失函数
 * 1.像素损失函数 
