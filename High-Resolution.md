@@ -74,7 +74,7 @@ SRCNN文章于2014年提出，是第一篇将深度卷积神经网络（CNN）�
 目前（到2018年），主流的LR特征提取是用一层3x3的卷积核对LR图像直接进行特征提取，称为浅层特征提取。此部分比较简单，所有不多以介绍。
 
 #### 3.2 特征提取
-这部分主要用三篇论文（VDSR，EDSR，WDSR）来讲解。
+这部分主要用三篇论文（[VDSR](https://github.com/YUTING0907/ECNU/blob/main/VDSR.md)，EDSR，WDSR）来讲解。
 
 #### 3.3 HR重建
 既2016年的VDSR后，超分辨率SR的重建大部分使用ESPCN论文中提出的pixel-shuffle
