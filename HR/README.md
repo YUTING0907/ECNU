@@ -1,6 +1,6 @@
 To do:
 
-1.[SR的背景概念性知识总结和几篇重要论文介绍](https://blog.csdn.net/weixin_46773169/article/details/106323644)
+✅1.[SR的背景概念性知识总结和几篇重要论文介绍](https://blog.csdn.net/weixin_46773169/article/details/106323644)
 
 2.[近年来超分结果对比](https://blog.csdn.net/weixin_46773169/article/details/109290839?spm=1001.2014.3001.5502)
 
