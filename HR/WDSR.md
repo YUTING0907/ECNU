@@ -24,22 +24,40 @@ WDSR是基于EDSR的改进。主要有三点贡献：
 WDSR-A和WDSR-B的区别：
  * WDSR-A：用3X3的卷积先对通道数进行增大，经过relu激活层，再使用3X3的卷积对通道数进行缩小，主要针对2-4倍的放大。
 
-   即：3x3 -> relu -> 3x3，卷积层的通道数依次为：
-​      3x3：input=32，output=192
+   即：3x3 -> relu -> 3x3，卷积层的通道数依次为：\
+​      3x3：input=32，output=192\
      3x3：input=192，output=32
 
  * WDSR-B：采用1X1的卷积核进行通道数的改变，经过relu，再使用1x1的卷积层进行通道数的改变，然后再使用3X3的卷积核进行特征提取，主要针对6-9倍的放大。
 
-   即：1x1 -> relu -> 1x1 -> 3x3，卷积层的通道数依次为：
-​      1x1：input=32，output=192
-​      1x1：input=192，output=32
+   即：1x1 -> relu -> 1x1 -> 3x3，卷积层的通道数依次为：\
+​      1x1：input=32，output=192\
+​      1x1：input=192，output=32\
 ​      3x3：input=32，output=32
-  
+
+  对于同样计算开销的前提下，表现性能是：WDSR-B > WDSR-A > ESDR。
+
+
 * 2.另一方面是去除了很多冗余的卷积层，
   这样计算更快。如图：
+  ![](https://raw.githubusercontent.com/YUTING0907/PicGo/main/img20230730171624.png)
+
+  图中阴影部分为作者去除的冗余的两个线性卷积层（只是卷积没有激活相当于是线性变换），作者认为这些层的效果是   可以吸收到残差结构里的，通过去除实验之后，发现效果并没有下降，所以去除冗余卷积层可以降低计算开销。
 
 ❤️2.2 第2点的贡献
+由于Batch Normalization（BN）层在超分辨率几乎起反向作用，EDSR直接去除了BN层，而WDSR不同，另辟蹊径，提出了取代BN的Weight Normalization（WN）。
 
+WN算是WDSR一个重要的技巧，其来自openAI在NIPS2016发表的一篇文章，就是将权重进行标准化。
 
+作者实验得出：引入WN可以使用更高的学习速率（例如10倍）进行训练，提高训练和测试的准确性。
+
+```
+另外，BN使用的基于mini-batch的归一化统计量代替全局统计量，相当于在梯度计算中引入了噪声。而WN则没有这个问题，所以在生成模型，强化学习等噪声敏感的环境中WN的效果也要优于BN。并且，WN也没有引入额外的参数，比BN更节约显存。
+```
+
+具体的WN原理请参考这篇回答[《模型优化之Weight Normalization》](https://zhuanlan.zhihu.com/p/55102378)
+
+参考：
+[WDSR(NTIRE2018超分辨率冠军)【深度解析】](https://blog.csdn.net/leviopku/article/details/85048846)
 
 
