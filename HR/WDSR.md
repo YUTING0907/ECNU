@@ -8,7 +8,7 @@ WDSR是基于EDSR的改进。主要有三点贡献：
 ### 一、Introduction
 
 ### 二、Proposal Method
-❤️2.1 第1点和第3点的贡献
+❤️ 2.1 第1点和第3点的贡献
 * 1.一方面是改造了残差块
   如图所示
   ![](https://raw.githubusercontent.com/YUTING0907/PicGo/main/img20230730165725.png)
