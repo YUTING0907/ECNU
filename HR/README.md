@@ -1,6 +1,8 @@
 To do:
 
-✅1.[SR的背景概念性知识总结和几篇重要论文介绍](https://blog.csdn.net/weixin_46773169/article/details/106323644)
+✅1.[SR的背景概念性知识总结和几篇重要论文介绍](https://github.com/YUTING0907/ECNU/blob/main/High-Resolution.md)
+
+(https://blog.csdn.net/weixin_46773169/article/details/106323644)
 
 ✅2.[近年来超分结果对比](https://github.com/YUTING0907/ECNU/blob/main/HR/超分结果对比.md)
 
