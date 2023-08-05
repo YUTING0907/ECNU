@@ -102,7 +102,7 @@ SSIM：结构相似性评价，Structural Similarity。SSIM是衡量两幅图像
 意见平均分MOS（主观方法）：通过邀请接受过训练的普通人以及未接受过训练的普通人来对重建的图像进行评分，并且两者人数大致均衡。通过给重建图像打分，再对最后的得分进行平均，在视觉感知方面远远优于其它评价指标，可以准确测量图像感知质量。
 
 ### 六、数据集
-* NTIRE
+* NTIRE Challenge
   CVPR(IEEE Conference on Computer Vision and Pattern Recognition)是世界顶级的计算机视觉会议（三大顶会之一，即IEEE国际计算机视觉与模式识别会议，另外两个是ICCV和ECCV）。
   CVPR下NTIRE（New Trends in Image Restoration and Enhancement Challenges）比赛，主要涉及图像超分辨率、图像去噪、去模糊、去摩尔纹、重建、去雾。本文主要基于NTIRE的超分辨率方面来谈，且只到2018年为止，更新的方法亲自行查阅资料。
 
@@ -110,10 +110,16 @@ SSIM：结构相似性评价，Structural Similarity。SSIM是衡量两幅图像
   在超分辨率上有四个赛道：使用经典的bicubic（双三次插值）降尺度方式作为待重建图像，进行8倍放大重建。这也是目前大部分文献中最常见的设置方式之一。而其余三个赛道均是来自不同程度（Mild、Difficult、Wild）未知退化算子模拟相机采集的待重建图像（目的是模拟现实的图像），进行4倍放大重建。
   NTIRE2018比赛使用的数据集为DIV2K数据集，一共包含1000张2K分辨率的RGB图像，其中800张为训练集，100张为验证集，100张为测试集。评价标准使用了PSNR、SSIM。PSNR，即峰值信噪比，可以比较SR结果图和ground truth(即原高清大图)之间的差距；SSIM，即结构相似性，可以评价SR的恢复效果，更注重细节恢复。
 
+* PIRM Challenge
+  PIRM挑战是ECCV下的，其中一个子挑战关注轻量级能运用在smartphone上的研究和HR图像生成的准确率和质量
+  
 * DIV2K数据集下载地址：
 官方：https://data.vision.ee.ethz.ch/cvl/DIV2K/
 
-* 一般超分辨率文章使用的5个测试集Set5 , Set14, BSDS100, Urban100 and Manga109下载地址：original test datasets (HR images) 
+* 一般超分辨率文章使用的5个测试集Set5 , Set14, BSDS100, Urban100 and Manga109下载地址：original test datasets (HR images)
+![](https://raw.githubusercontent.com/YUTING0907/PicGo/main/img20230805165034.png)
+
+  
 
 ### 七、未来发展
 未来在超分领域的改进方向，可以包括提出更复杂的损失函数；实现任意的超分辨率构建；提升性能的同时，追求轻量化；多种网络模块的有效组合；如何降低数据集图片质量，如盲超分技术来解决未知退化模型问题。
