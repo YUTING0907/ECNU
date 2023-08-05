@@ -43,10 +43,31 @@ SRCNN文章于2014年提出，是第一篇将深度卷积神经网络（CNN）�
 * 1.LR特征提取（Patch extraction and representation），这个阶段主要是对LR进行特征提取，并将其特征表征为一些feature maps，通常称为浅层特征提取；
 
 * 2.特征的非线性映射（Non-linear mapping），这个阶段主要是将第一阶段提取的特征映射至HR所需的feature maps；
+  这部分主要用三篇论文（[VDSR](https://github.com/YUTING0907/ECNU/blob/main/HR/VDSR.md)，[EDSR](https://github.com/YUTING0907/ECNU/blob/main/HR/EDSR.md)，
+[WDSR](https://github.com/YUTING0907/ECNU/blob/main/HR/WDSR.md)
+)来讲解。
+
 
 * 3.HR重建（Reconstruction），这个阶段是将第二阶段映射后的特征使用上采样方法恢复为HR图像。
+既2016年的VDSR后，超分辨率SR的重建大部分使用ESPCN论文中提出的pixel-shuffle\
+pixel-shuffle操作其实就是将H * W * C * r * r  ==>  rH * rW * C 
+分辨遍历每一个通道将r与H、W混合（shuffle），即H * W 放大为 rH * rW，将照片从原来的大小放大为r倍。
 
-### 2.4 基于深度学习的方法
+```
+在pytorch中：官方提供了pixel shuffle方法：
+CLASS torch.nn.PixelShuffle(upscale_factor)
+```
+
+
+### 三、基于深度学习SISR网络的构建
+上面介绍了SR的背景信息和概念知识，以下介绍SR的网络设计。
+
+图像高分辨任务现有主流的方法还是基于监督的深度学习方法，通常数据集是SR图像或者SR-LR图像对，但是一般现实很少能收集到SR-LR对，所以主要还是SR数据集，对于只有SR数据集，会先用一定的方法生成LR数据。然后再基于网络模型生成的HR图像，与真实图像之间进行差异比较
+
+虽然SR最流行的损失函数是逐像素均方误差(即像素损失)，但更强大的模型倾向于使用多个损失函数的组合
+
+#### 3.1 Supervised Image Super-resolution 监督图像高分辨
+
 * 基于卷积神经网络的方法\
 1.SRCNN(2016)：第一个SR深度学习网络，Image Super-Resolution Using Deep Convolutional Networks\
 2.VDSR(2016)：首次提出利用残差深度网络解决SR问题\
@@ -66,28 +87,6 @@ SRCNN文章于2014年提出，是第一篇将深度卷积神经网络（CNN）�
 3.BSRGAN(2021)
 
 * 基于自注意力transformer的方法
-
-### 三、基于深度学习SISR网络的构建
-上面介绍了SR的背景信息和概念知识，以下介绍SR的主体，即实现超分辨率的三大步骤。
-
-#### 3.1 特征提取
-目前（到2018年），主流的LR特征提取是用一层3x3的卷积核对LR图像直接进行特征提取，称为浅层特征提取。此部分比较简单，所有不多以介绍。
-
-#### 3.2 特征提取
-这部分主要用三篇论文（[VDSR](https://github.com/YUTING0907/ECNU/blob/main/HR/VDSR.md)，[EDSR](https://github.com/YUTING0907/ECNU/blob/main/HR/EDSR.md)，
-[WDSR](https://github.com/YUTING0907/ECNU/blob/main/HR/WDSR.md)
-)来讲解。
-
-#### 3.3 HR重建
-既2016年的VDSR后，超分辨率SR的重建大部分使用ESPCN论文中提出的pixel-shuffle\
-pixel-shuffle操作其实就是将H * W * C * r * r  ==>  rH * rW * C 
-分辨遍历每一个通道将r与H、W混合（shuffle），即H * W 放大为 rH * rW，将照片从原来的大小放大为r倍。
-
-```
-在pytorch中：官方提供了pixel shuffle方法：
-CLASS torch.nn.PixelShuffle(upscale_factor)
-```
-
 
 ### 四、几类损失函数
 * 1.像素损失函数 
