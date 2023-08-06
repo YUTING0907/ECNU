@@ -277,5 +277,6 @@ Blind IQA Methods
 图像超分辨率在实际场景中受到很大的限制，例如遭受未知的降质，丢失配对的LR - HR图像。真实世界的图像往往会出现模糊、加性噪声和压缩伪影等退化现象。因此，在人工构建的数据集上训练的模型在真实场景中往往表现不佳。为了解决这个问题，已经提出了一些工作，但是这些方法存在一些固有的缺陷，例如训练难度大，假设条件过于完善。这一问题亟待解决。特定领域的应用。超分辨率不仅可以直接用于特定领域的数据和场景，而且对其他视觉任务也有很大的帮。因此，将SR应用于更具体的领域，如视频监控、目标跟踪、医学成像和场景渲染等，也是一个很有前景的方向。
 
 参考：
-paper：Deep Learning for Image Super-Resolution: A Survey
+[Deep Learning for Image Super-Resolution: A Survey](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9044873)
+
 https://zhuanlan.zhihu.com/p/276027388
