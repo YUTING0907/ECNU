@@ -176,9 +176,9 @@ e.g. SRCNN、VDSR
 ### 11.xUnit
 为了结合空间特征处理和非线性激活来更有效地学习复杂特征，ReLU被视为确定一个权重图来与输入进行逐元素相乘，而xUnit通过卷积和高斯门直接学习权重图。虽然xUnit对计算要求较高，但由于其对性能的影响较大，在与ReLU进行性能匹配的同时，可以极大地减小模型规模。通过这种方式，作者在不降低性能的情况下，将模型大小减少了近50%。
 
-* 基于卷积神经网络的方法\
 ![](https://raw.githubusercontent.com/YUTING0907/PicGo/main/img20230806122439.png)
 
+* 基于卷积神经网络的方法\
 1.SRCNN(2016)：第一个SR深度学习网络，Image Super-Resolution Using Deep Convolutional Networks\
 2.VDSR(2016)：首次提出利用残差深度网络解决SR问题\
 3.ESPCN(2016)：基于像素重排列，不需要对LR进行上采样，使用卷积的方式逐步恢复至目标分辨率大小\
@@ -187,7 +187,7 @@ e.g. SRCNN、VDSR
 5.EDSR/MDSR(2017)：增强的深度超分辨率(enhanced deep super-resolution，EDSR)网络\
 6.RCAN(2018)：首个将注意力机制应用于SR问题的网络\
 7.MSRN(2018)：多尺度残差网络 (multi-scaleresidualnetwork，MSRN)，该方法在残差块上进行改进，并加入了多尺度大小的卷积核， 实现了不同尺度图像特征的自适应地检测\
-8.MSFFRN(2020)：多尺度特征融合残差模块(multi-scale feature fusion residual block，MSFFRB)，通过多个交织路 径充分利用不同尺度下的浅层和深层局部图像特征信息。
+8.MSFFRN(2020)：多尺度特征融合残差模块(multi-scale feature fusion residual block，MSFFRB)，通过多个交织路 径充分利用不同尺度下的浅层和深层局部图像特征信息\
 9.MSFIN(2021)：轻量级的方法，就如何让复杂的SR算法迁移至移动设备进行了研究。
 
 * 基于GAN的方法\
