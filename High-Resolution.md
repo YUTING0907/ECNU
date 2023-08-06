@@ -24,10 +24,30 @@ VSR：视频超分辨率
 2. 追求整体视觉效果，细节部位要求不高。\
 应用如：低分辨率视频电视的恢复、相机模糊图像的恢复等。
 
-### 2.2 SISR重建分类
-SR重建任务的方法可分为两个大类：
-* 强化网络特征学习
-* 添加模糊算子先验
+### 2.2 SISR方法
+有监督的超分方法和无监督的超分
+
+有监督方法的基础是LR-HR图像对，网络模型的结构多种多样，下面介绍四种常见的结构。
+
+**a.pre-upsampling SR**\
+因为直接学习低分辨率图像和高分辨率图像之间的映射过程会比较困难，Dong等人在SRCNN中首次使用了pre-upsampling SR结构，即先对低分辨率图像做上采样操作，使上采样后的图像尺寸与高分辨率相同，然后学习该上采样后的图像和高分辨率图像之间的映射关系，极大地降低了学习难度。但是，预先上采样通常会带来副作用（例如，噪声放大和模糊），并且由于大多数操作是在高维空间中执行的，因此时间和空间的成本比其他框架要高得多。
+
+![](https://raw.githubusercontent.com/YUTING0907/PicGo/main/img20230806111934.png)
+
+**b.Post-upsampling SR**\
+为了提高计算效率并充分利用深度学习技术，研究人员提出在低维空间进行大多数的运算，在网络的末端再进行上采样操作。该做法的好处是，由于具有巨大计算成本的特征提取过程仅发生在低维空间中，大大降低了计算量和空间复杂度，该框架也已成为最主流的框架之一，在近年的模型中被广泛应用。
+
+![](https://raw.githubusercontent.com/YUTING0907/PicGo/main/img20230806111955.png)
+
+**c.Progressive upsampling SR**\
+虽然Post-upsampling SR很大程度上降低了计算难度，但对于比例因子较大的情况（4倍、8倍超分），使用Post-upsampling SR方法有较大的学习难度。而且，对于不同比例因子，需要分别训练一个单独的SR网络模型，无法满足对多尺度SR的需求。Progressive upsampling SR 框架下的模型是基于级联的CNN结构，逐步重建高分辨率图像。在每一个阶段，图像被上采样到更高的分辨率，Laplacian金字塔SR网络（LapSRN）就采用了上述框架。通过将一个困难的任务分解为简单的任务，该框架下的模型大大降低了学习难度，特别是在大比例因子的情况下，能够达到较好的学习效果。然而，这类模型也存在着模型设计复杂、训练稳定性差等问题，需要更多的建模指导和更先进的训练策略。
+
+![](https://raw.githubusercontent.com/YUTING0907/PicGo/main/img20230806112023.png)
+
+**d.Iterative up-and-down Sampling SR**\
+为了更好地捕捉LR-HR图像对之间的相互依赖关系，在SR中引入了一种高效的迭代过程，称为反投影。DBPN就是基于该结构的模型之一，它交替连接上采样层和下采样层，并使用所有中间过程来重建最终的HR。该框架下的模型可以更好地挖掘LR-HR图像对之间的深层关系，从而提供更高质量的重建结果。然而，反投影模块的设计标准仍然不清楚，由于该机制刚刚被引入到基于深度学习的SR中，具有很大的潜力，需要进一步探索。
+
+![](https://raw.githubusercontent.com/YUTING0907/PicGo/main/img20230806112047.png)
 
 SR重建任务的两个优化问题：
 * 如何在大尺寸放大获得更好的细节收益
@@ -46,7 +66,6 @@ SRCNN文章于2014年提出，是第一篇将深度卷积神经网络（CNN）�
   这部分主要用三篇论文（[VDSR](https://github.com/YUTING0907/ECNU/blob/main/HR/VDSR.md)，[EDSR](https://github.com/YUTING0907/ECNU/blob/main/HR/EDSR.md)，
 [WDSR](https://github.com/YUTING0907/ECNU/blob/main/HR/WDSR.md)
 )来讲解。
-
 
 * 3.HR重建（Reconstruction），这个阶段是将第二阶段映射后的特征使用上采样方法恢复为HR图像。
 既2016年的VDSR后，超分辨率SR的重建大部分使用ESPCN论文中提出的pixel-shuffle\
