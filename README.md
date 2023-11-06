@@ -33,5 +33,5 @@
 ## 3 比赛
 
 ## 4 深度学习模型训练流程及代码
-[](https://github.com/YUTING0907/ECNU/blob/main/DeepLearning/CV.md)
+[CV](https://github.com/YUTING0907/ECNU/blob/main/DeepLearning/CV.md)
 
