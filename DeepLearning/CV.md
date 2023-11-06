@@ -5,7 +5,7 @@
 一般训练深度学习模型都是基于现有的预训练模型进行微调，在https://github.com/huggingface/pytorch-image-models可目前流行的CV模型文件
 
 例如：下载EfficientNet模型文件步骤
-https://github.com/huggingface/pytorch-image-models/tree/main/timm/models 文件夹下找到efficientnet.py文件，打开下载对应的文件
+https://github.com/huggingface/pytorch-image-models/tree/main/timm/models 文件夹下找到efficientnet.py文件，找到相应的url下载对应的文件
 ````
   'tf_efficientnet_b2.ns_jft_in1k': _cfg(
         url='https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/tf_efficientnet_b2_ns-00306e48.pth',
