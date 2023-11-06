@@ -1,6 +1,16 @@
 ### 深度学习模型训练步骤
 以图像分类模型为例
 
+#### 0.下载预训练模型参数文件
+一般训练深度学习模型都是基于现有的预训练模型进行微调，在https://github.com/huggingface/pytorch-image-models可目前流行的CV模型文件
+例如：下载EfficientNet模型文件步骤
+https://github.com/huggingface/pytorch-image-models/tree/main/timm/models文件夹下找到efficientnet.py文件，打开下载对应的文件
+    'tf_efficientnet_b2.ns_jft_in1k': _cfg(
+        url='https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/tf_efficientnet_b2_ns-00306e48.pth',
+        hf_hub_id='timm/',
+        input_size=(3, 260, 260), pool_size=(9, 9), crop_pct=0.890),
+将文件放入.cache/torch/hub/checkpoints目录下，在引用时候利用timm.create_model()指定文件名加载即可
+
 #### 1.加载训练和验证数据
 ````
 # ====================================================
@@ -62,8 +72,9 @@ class CustomModel(nn.Module):
     def __init__(self, cfg, pretrained=False):
         super().__init__()
         self.cfg = cfg
-        self.model = timm.create_model(self.cfg.model_name, pretrained=pretrained, in_chans=3)
-        #print(self.model)
+        self.model = timm.create_model(self.cfg.model_name, pretrained=pretrained, in_chans=3
+                                       ,num_classes=360
+                                       ,pretrained_cfg_overlay=dict(file='C:/Users/yuting/.cache/torch/hub/checkpoints/tf_efficientnet_b2_ns-00306e48.pth'),)
         if 'efficientnet' in self.cfg.model_name:
             self.n_features = self.model.classifier.in_features
             self.model.global_pool = nn.Identity()
@@ -78,12 +89,13 @@ class CustomModel(nn.Module):
             self.model.fc = nn.Identity()
         self.pooling = nn.AdaptiveAvgPool2d(1)
         self.classifier = nn.Sequential(
-                            #nn.Conv2d(self.n_features, self.n_features // 8, 1),
-                            #nn.LeakyReLU(),
-                            #nn.BatchNorm2d(self.n_features // 8),
-                            nn.Conv2d(self.n_features, 44, 1),
-                            #nn.Sigmoid()
-                        )
+            #nn.Conv2d(self.n_features, self.n_features // 8, 1),
+            #nn.LeakyReLU(),
+            #nn.BatchNorm2d(self.n_features // 8),
+            #nn.Conv2d(self.n_features, 44, 1),
+            nn.Conv2d(self.n_features, 360, 1),
+            #nn.Sigmoid()
+        )
 
     def forward(self, x):
         bs = x.size(0)
