@@ -1,8 +1,8 @@
 
 
-## 1⃣️CS研究生课程相关
+## 1 CS研究生课程相关
 
-## 2⃣️本人研究相关
+## 2 本人研究相关
 
 ### 0.论文阅读方法
 ❤️三遍读（李沐分享读论文方法）
@@ -30,4 +30,4 @@
 ### 3.super resolution高分辨率
 [超分辨综述](https://github.com/YUTING0907/ECNU/blob/main/High-Resolution.md)
 
-## 3⃣️比赛
+## 3 比赛
