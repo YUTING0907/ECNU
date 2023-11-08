@@ -376,10 +376,16 @@ df
 ````
 #### 7.优化策略
 1.调节CFG的基本配置，学习率大小（lr），bt大小（batch_size），学习率策略（scheduler）
+
 2.调整backbone(当前使用model_name = 'tf_efficientnet_b2',可以调整为eff其他大小网络b1-b7,resnet50,或者convnext_small等较新的网络)
+
 3.数据增强
+
 4.调整TTA(减少或增加TTA), [TTA介绍](https://medium.com/analytics-vidhya/test-time-augmentation-using-pytorch-3da02d0a3188)
+
 5.模型融合
+
+6.迁移学习
 
 #### 8.实验设置
 product-10k作为数据集，进行图片分类，其中最后输出的target为360类。
